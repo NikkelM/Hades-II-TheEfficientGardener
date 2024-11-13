@@ -43,7 +43,7 @@ local function on_ready()
 	if config.enabled == false then return end
 
 	import 'Game/Text/HelpText.en.sjson.lua'
-	import 'Scripts/MusicPlayerData.lua'
+	import 'Scripts/GardenLogic.lua'
 end
 
 local function on_reload()
