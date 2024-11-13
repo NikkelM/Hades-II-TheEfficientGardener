@@ -3,17 +3,31 @@
 
 local order = {
   "Id",
-  "DisplayName",
-  "Description"
+  "DisplayName"
 }
 
--- Data that should be added to the object
+-- Add new interaction buttons to the Garden Plots
 local newData = {
   {
-    Id = "Song_Hades_MainTheme",
-    DisplayName = "No Escape",
-    Description = "A rousing theme created for the god of the dead. A piece by Orpheus, Hades' house musician."
+    Id = "UseGardenPlotPlant",
+    DisplayName = "{I} Plant\n {A1} Plant all"
   },
+  {
+    Id = "UseGardenPlotReady",
+    DisplayName = "{I} Harvest\n {A1} Harvest all"
+  },
+  {
+    Id = "GardenPlotHarvestAndGift",
+    DisplayName = "{I} Harvest\n {A1} Harvest all\n {G} Water"
+  },
+  {
+    Id = "GardenPlotHarvestAndSpecial",
+    DisplayName = "{I} Harvest\n {A1} Harvest all\n {SI} Admire"
+  },
+  {
+    Id = "GardenPlotHarvestGiftAndSpecial",
+    DisplayName = "{I} Harvest\n {A1} Harvest all\n {G} Water", --\n {SI} Admire"
+  }
 }
 
 local helpTextFile = rom.path.combine(rom.paths.Content, 'Game/Text/en/HelpText.en.sjson')
