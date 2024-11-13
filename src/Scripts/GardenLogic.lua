@@ -25,10 +25,7 @@ modutil.mod.Path.Wrap("GardenPlantSeed", function(base, screen, button)
 	end
 end)
 
-
 modutil.mod.Path.Wrap("UseGardenPlot", function(base, plot, args, user)
-	print("UseGardenPlot")
-
 	base(plot, args, user)
 
 	-- If the plant was harvested, we now need to enable special interaction to allow plant all
