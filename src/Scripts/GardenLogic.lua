@@ -1,13 +1,43 @@
--- modutil.mod.Path.Wrap("UseGardenPlot", function(base, plot, args, user)
--- 	print("UseGardenPlot")
+modutil.mod.Path.Wrap("SetupGardenPlot", function(base, plot, args, sourceArgs)
+	base(plot, args, sourceArgs)
+	for _, gamestatePlot in pairs(game.GameState.GardenPlots) do
+		-- If the plot is empty, allow the special interaction, and change the text to the plant/plant all text
+		if (gamestatePlot.SeedName == nil) then
+			gamestatePlot.SpecialInteractGameStateRequirements = nil
+			gamestatePlot.UseTextSpecial = "UseGardenPlotPlant"
+		end
+	end
+end)
 
--- 	base(plot, args, user)
--- end)
+-- After planting a seed, we need to restore the default values, to change the text to only Admire
+modutil.mod.Path.Wrap("GardenPlantSeed", function(base, screen, button)
+	base(screen, button)
+
+	local plot = screen.Args.PlantTarget
+	if (plot.SeedName ~= nil) then
+		plot.SpecialInteractGameStateRequirements = {
+			{
+				PathFromSource = true,
+				PathTrue = { "SeedName" },
+			},
+		}
+		plot.UseTextSpecial = "GardenPlotSpecial"
+	end
+end)
 
 
--- plot.GrowTimeRemaining == 0?
+modutil.mod.Path.Wrap("UseGardenPlot", function(base, plot, args, user)
+	print("UseGardenPlot")
 
--- GameState.GardenPlots[plot.ObjectId]
+	base(plot, args, user)
+
+	-- If the plant was harvested, we now need to enable special interaction to allow plant all
+	if (plot.SeedName == nil) then
+		plot.SpecialInteractGameStateRequirements = nil
+		plot.UseTextSpecial = "UseGardenPlotPlant"
+	end
+end)
+
 
 --[[
 558337:
