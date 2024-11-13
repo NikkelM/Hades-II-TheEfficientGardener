@@ -62,6 +62,7 @@ local function on_ready()
 	if config.enabled == false then return end
 
 	import 'Game/Text/HelpText.en.sjson.lua'
+	import 'Scripts/ObstacleData.lua'
 	import 'Scripts/InteractPresentation.lua'
 	import 'Scripts/GardenLogic.lua'
 end

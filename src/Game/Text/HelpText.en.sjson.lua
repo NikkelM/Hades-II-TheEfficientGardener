@@ -9,18 +9,14 @@ local order = {
 -- Add new interaction buttons to the Garden Plots
 -- Special interaction/Admire is replaced by Harvest All
 local newData = {
-  -- {
-  --   Id = "UseGardenPlotPlant",
-  --   DisplayName = "{I} Plant\n {A1} Plant all"
-  -- },
-  -- Need to make sure this doesn't show ever - remove cooldown of special usage
   {
-    Id = "UseGardenPlotReady",
-    DisplayName = "{I} Harvest"
+    Id = "UseGardenPlotPlant",
+    DisplayName = "{I} Plant\n {SI} Plant all"
   },
+  -- TODO: When only one plot is ready to be harvested, show Admire again, and change the logic of the called function back to normal admire
   {
     Id = "GardenPlotHarvestAndGift",
-    DisplayName = "{I} Harvest\n {A1} Harvest all\n {G} Water"
+    DisplayName = "{I} Harvest\n {SI} Harvest all\n {G} Water"
   },
   {
     Id = "GardenPlotHarvestAndSpecial",

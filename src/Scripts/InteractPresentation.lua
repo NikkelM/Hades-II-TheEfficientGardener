@@ -25,8 +25,18 @@ modutil.mod.Path.Wrap("PlantAdmirePresentation", function(base, usee, args)
 	end
 
 	if usee.SeedName == nil then
-		-- TODO: The plot is empty - implement plant all functionality
-		print("Plot is empty")
+		print("Plot is empty, planting all")
+		-- Allow planting multiple seeds at once
+		game.SessionState.GlobalCooldowns["UsedGardenPlot"] = -999
+		-- GardenPlantSeed(screen, button)
+		-- screen.Args.PlantTarget -> Set this in the for loop when calling GardenPlantSeed
+
+		-- TODO: We only need the seedcount of the seed that was selected in the popup
+		local seedCounts = {}
+		for seedName, _ in pairs(game.GardenData.Seeds) do
+			local seedCount = game.GameState.Resources[seedName] or 0
+			seedCounts[seedName] = seedCount
+		end
 	else
 		-- The plot is ready to harvest - harvest all
 		-- Harvest the current plot first for presentation purposes
