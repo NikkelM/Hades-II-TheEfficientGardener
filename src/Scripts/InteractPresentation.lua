@@ -1,20 +1,3 @@
---[[
-function PlantAdmirePresentation( usee, args )
-	HideUseButton( usee.ObjectId, usee )
-	AddInputBlock({ Name = "PlantAdmirePresentation" })
-
-	--SetAnimation({ Name = "MelinoeGatherStart", DestinationId = CurrentRun.Hero.ObjectId })
-	--AngleTowardTarget({ Id = CurrentRun.Hero.ObjectId, DestinationId = usee.ObjectId })
-	PlaySound({ Name = "/Leftovers/Menu Sounds/RobesInteract", DestinationId = CurrentRun.Hero.ObjectId })
-	wait( 0.1 )
-	thread( PlayVoiceLines, HeroVoiceLines.PlantInteractVoiceLines, true, usee )
-	AngleTowardTarget({ Id = CurrentRun.Hero.ObjectId, DestinationId = usee.ObjectId })
-	SetAnimation({ Name = "MelTalkBroodingFull01", DestinationId = CurrentRun.Hero.ObjectId })
-	wait( 1.85 )
-	RemoveInputBlock({ Name = "PlantAdmirePresentation" })
-end
-]]
-
 -- Usee is the current plot
 modutil.mod.Path.Wrap("PlantAdmirePresentation", function(base, usee, args)
 	-- If the current plot is ready to harvest or not - admire or harvest all
@@ -38,6 +21,9 @@ modutil.mod.Path.Wrap("PlantAdmirePresentation", function(base, usee, args)
 			seedCounts[seedName] = seedCount
 		end
 	else
+		-- Don't allow any other inputs while harvesting
+		AddInputBlock({ Name = "PlantHarvestAllAnimation" })
+		-- TODO: Make sure the button field (E: Harvest etc.) are hidden during the entire animation
 		-- The plot is ready to harvest - harvest all
 		-- Harvest the current plot first for presentation purposes
 		game.UseGardenPlot(usee, nil, game.CurrentRun.Hero)
@@ -52,5 +38,6 @@ modutil.mod.Path.Wrap("PlantAdmirePresentation", function(base, usee, args)
 				game.wait(0.25)
 			end
 		end
+		RemoveInputBlock({ Name = "PlantHarvestAllAnimation" })
 	end
 end)
