@@ -40,21 +40,21 @@ public.config = config -- so other mods can access our config
 
 -- For debugging
 function printTable(t, indent)
-    if type(t) ~= "table" then
-        print("Error: Expected a table, got " .. type(t))
-        return
-    end
+	if type(t) ~= "table" then
+		print("Error: Expected a table, got " .. type(t))
+		return
+	end
 
-    indent = indent or 0
-    local formatting = string.rep("  ", indent)
-    for k, v in pairs(t) do
-        if type(v) == "table" then
-            print(formatting .. k .. ":")
-            printTable(v, indent + 1)
-        else
-            print(formatting .. k .. ": " .. tostring(v))
-        end
-    end
+	indent = indent or 0
+	local formatting = string.rep("  ", indent)
+	for k, v in pairs(t) do
+		if type(v) == "table" then
+			print(formatting .. k .. ":")
+			printTable(v, indent + 1)
+		else
+			print(formatting .. k .. ": " .. tostring(v))
+		end
+	end
 end
 
 local function on_ready()
