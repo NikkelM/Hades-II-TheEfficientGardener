@@ -64,6 +64,7 @@ local function on_ready()
 	import 'Game/Text/HelpText.en.sjson.lua'
 	import 'Scripts/InteractPresentation.lua'
 	import 'Scripts/GardenLogic.lua'
+	import 'Scripts/ResourceLogic.lua'
 end
 
 local function on_reload()

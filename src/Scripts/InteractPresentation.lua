@@ -30,10 +30,24 @@ modutil.mod.Path.Wrap("PlantAdmirePresentation", function(base, usee, args)
 		-- Plant all free plots, or until there are no more of the selected seed
 		for _, plot in pairs(game.GameState.GardenPlots) do
 			if plot.SeedName == nil and seedCount > 0 then
-				-- TODO: Locals for screen and button, call base game GardenPlantSeed, wrap CloseInventoryScreen with a custom arg to stop it from running
+				-- Set screen and button dummy values for the GardenPlantSeed function
+				local screen = {
+					Args = {
+						PlantTarget = plot,
+						-- Since there is no open inventory screen, we need to skip the close inventory screen function
+						ModsGardenOptimizationSkipCloseInventory = true
+					}
+				}
+				local button = {
+					ResourceData = {
+						Name = selectedSeed
+					}
+				}
+
 				-- Reset the cooldown for the function call, as we want to be able to use it multiple times
 				game.SessionState.GlobalCooldowns["UsedGardenPlot"] = nil
-				ModdedGardenPlantSeed(plot, selectedSeed)
+				game.GardenPlantSeed(screen, button)
+
 				-- Decrease the seed count (count should be the same as inventory)
 				seedCount = seedCount - 1
 				game.wait(0.25)
@@ -62,42 +76,3 @@ modutil.mod.Path.Wrap("PlantAdmirePresentation", function(base, usee, args)
 		RemoveInputBlock({ Name = "GardenOptimizationHarvestAllAnimation" })
 	end
 end)
-
--- This is the same as the base game GardenPlantSeed function, but without references to screen and button
-function ModdedGardenPlantSeed(plot, seedName)
-	if game.HasSeeds(2) then
-		game.StopStatusAnimation(plot)
-	else
-		-- No more seeds for any plot
-		for id, gardenPlot in pairs(game.GameState.GardenPlots) do
-			game.StopStatusAnimation(gardenPlot)
-		end
-	end
-
-	plot.SeedName = seedName
-	local seedData = game.GardenData.Seeds[plot.SeedName]
-	plot.StartingGrowTime = game.RandomInt(seedData.GrowTimeMin, seedData.GrowTimeMax)
-	plot.GrowTimeRemaining = plot.StartingGrowTime
-	plot.StoredGrows = 0
-	plot.StoredResources = 0
-	plot.LifetimeGrows = 0
-
-	local weightedList = {}
-	for k, option in pairs(seedData.RandomOutcomes) do
-		if option.GameStateRequirements == nil or game.IsGameStateEligible(option, option.GameStateRequirements) then
-			weightedList[k] = option.Weight or 1
-		end
-	end
-	plot.OutcomeKey = game.GetRandomValueFromWeightedList(weightedList)
-	local outcomeData = seedData.RandomOutcomes[plot.OutcomeKey]
-	local resourceName = game.GetFirstKey(outcomeData.AddResources)
-	plot.ResourceIconPath = game.ResourceData[resourceName].IconPath
-	plot.MaxStoredGrows = seedData.MaxStoredGrows or 1
-	plot.MaxStoredResources = plot.MaxStoredGrows * game.GetFirstValue(outcomeData.AddResources)
-
-	game.GameState.GardenLastSeedPlanted = plot.SeedName
-
-	plot.PlantId = SpawnObstacle({ Name = "PlantBase", DestinationId = plot.ObjectId, Group = "Standing" })
-	game.SpendResource(seedName, 1, "Graden")
-	game.GardenPlantSeedPresentation(plot, nil, game.CurrentRun.Hero)
-end
