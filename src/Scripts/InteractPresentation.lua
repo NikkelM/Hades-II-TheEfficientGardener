@@ -35,13 +35,11 @@ modutil.mod.Path.Wrap("PlantAdmirePresentation", function(base, usee, args)
 
 		-- Harvest all remaining ready plots, skip the others
 		for _, plot in pairs(game.GameState.GardenPlots) do
-			if plot.SeedName == nil then
-			elseif plot.GrowTimeRemaining == 0 then
-				-- Reset the cooldown for the function, as we want to be able to use it multiple times
+			if plot.SeedName ~= nil and plot.GrowTimeRemaining == 0 then
+				-- Reset the cooldown for the function call, as we want to be able to use it multiple times
 				game.SessionState.GlobalCooldowns["UsedGardenPlot"] = -999
 				game.UseGardenPlot(plot, nil, game.CurrentRun.Hero)
 				game.wait(0.25)
-			else
 			end
 		end
 	end
