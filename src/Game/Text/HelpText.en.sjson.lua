@@ -7,14 +7,16 @@ local order = {
 }
 
 -- Add new interaction buttons to the Garden Plots
+-- Special interaction/Admire is replaced by Harvest All
 local newData = {
-  {
-    Id = "UseGardenPlotPlant",
-    DisplayName = "{I} Plant\n {A1} Plant all"
-  },
+  -- {
+  --   Id = "UseGardenPlotPlant",
+  --   DisplayName = "{I} Plant\n {A1} Plant all"
+  -- },
+  -- Need to make sure this doesn't show ever - remove cooldown of special usage
   {
     Id = "UseGardenPlotReady",
-    DisplayName = "{I} Harvest\n {A1} Harvest all"
+    DisplayName = "{I} Harvest"
   },
   {
     Id = "GardenPlotHarvestAndGift",
@@ -22,11 +24,11 @@ local newData = {
   },
   {
     Id = "GardenPlotHarvestAndSpecial",
-    DisplayName = "{I} Harvest\n {A1} Harvest all\n {SI} Admire"
+    DisplayName = "{I} Harvest\n {SI} Harvest All"
   },
   {
     Id = "GardenPlotHarvestGiftAndSpecial",
-    DisplayName = "{I} Harvest\n {A1} Harvest all\n {G} Water", --\n {SI} Admire"
+    DisplayName = "{I} Harvest\n {G} Water\n {SI} Harvest All"
   }
 }
 

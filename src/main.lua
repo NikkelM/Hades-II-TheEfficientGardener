@@ -38,11 +38,31 @@ config = chalk.auto 'config.lua'
 -- ^ this updates our `.cfg` file in the config folder!
 public.config = config -- so other mods can access our config
 
+-- For debugging
+function printTable(t, indent)
+    if type(t) ~= "table" then
+        print("Error: Expected a table, got " .. type(t))
+        return
+    end
+
+    indent = indent or 0
+    local formatting = string.rep("  ", indent)
+    for k, v in pairs(t) do
+        if type(v) == "table" then
+            print(formatting .. k .. ":")
+            printTable(v, indent + 1)
+        else
+            print(formatting .. k .. ": " .. tostring(v))
+        end
+    end
+end
+
 local function on_ready()
 	-- what to do when we are ready, but not re-do on reload.
 	if config.enabled == false then return end
 
 	import 'Game/Text/HelpText.en.sjson.lua'
+	import 'Scripts/InteractPresentation.lua'
 	import 'Scripts/GardenLogic.lua'
 end
 
