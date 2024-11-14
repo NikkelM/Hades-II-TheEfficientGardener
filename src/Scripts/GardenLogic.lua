@@ -1,12 +1,10 @@
 modutil.mod.Path.Wrap("SetupGardenPlot", function(base, plot, args, sourceArgs)
 	base(plot, args, sourceArgs)
 
-	for _, gamestatePlot in pairs(game.GameState.GardenPlots) do
-		-- If the plot is empty, allow the special interaction, and change the text to the plant/plant all text
-		if (gamestatePlot.SeedName == nil) then
-			gamestatePlot.SpecialInteractGameStateRequirements = nil
-			gamestatePlot.UseTextSpecial = "UseGardenPlotPlant"
-		end
+	-- If the plot is empty, allow the special interaction, and change the text to the plant/plant all text
+	if (plot.SeedName == nil) then
+		plot.SpecialInteractGameStateRequirements = nil
+		plot.UseTextSpecial = "UseGardenPlotPlant"
 	end
 end)
 
@@ -36,9 +34,15 @@ modutil.mod.Path.Wrap("UseGardenPlot", function(base, plot, args, user)
 
 	if plot.SeedName == nil then
 		-- Plant the seed, include the input blocker argument
-		game.OpenInventoryScreen({ PlantTarget = plot, DefaultCategoryIndex = 2, CategoryLocked = true, InitialSelection =
-		game.GameState.GardenLastSeedPlanted, ModsGardenOptimizationBlockPlantAllAnimation = args
-		.ModsGardenOptimizationBlockPlantAllAnimation, })
+		game.OpenInventoryScreen({
+			PlantTarget = plot,
+			DefaultCategoryIndex = 2,
+			CategoryLocked = true,
+			InitialSelection =
+					game.GameState.GardenLastSeedPlanted,
+			ModsGardenOptimizationBlockPlantAllAnimation = args
+					.ModsGardenOptimizationBlockPlantAllAnimation,
+		})
 		return
 	end
 
