@@ -8,6 +8,6 @@ If a seed can be planted or a plant harvested from the current plot, the "Admire
 
 When "Planting All", as many of the selected seed as possible will be planted, up to the amount in your inventory.
 
-![HarvestAll](https://github.com/user-attachments/assets/8a463d57-64a3-4902-a934-8f9655ad206d)
+![HarvestAll](https://github.com/user-attachments/assets/d9a8becd-bbe7-446c-b0b8-7b96bc00c595)
 
 ![PlantAll](https://github.com/user-attachments/assets/ca1f28f5-a182-4e42-8b93-f4af0ef8f0a6)
