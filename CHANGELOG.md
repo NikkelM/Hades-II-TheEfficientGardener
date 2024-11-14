@@ -2,8 +2,6 @@
 
 ## v1.1.0
 
-<!-- TODO: Redo HarvestAll screenshot, icon -->
-
 <!--Releasenotes start-->
 - Returned the ability to admire grown plants. "Harvest All" now replaces the "Harvest" instead of the "Admire" prompt.
 <!--Releasenotes end-->
