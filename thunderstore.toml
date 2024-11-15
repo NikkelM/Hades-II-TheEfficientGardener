@@ -7,7 +7,7 @@ namespace = "NikkelM"
 name = "The_Efficient_Gardener"
 versionNumber = "1.2.0"
 description = "Plant and harvest multiple plants at once in your Garden."
-websiteUrl = "https://github.com/NikkelM/Hades-II-Optimized-Gardening"
+websiteUrl = "https://github.com/NikkelM/Hades-II-TheEfficientGardener"
 containsNsfwContent = false
 
 [package.dependencies]

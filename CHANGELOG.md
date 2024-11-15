@@ -1,10 +1,14 @@
 # Changelog
 
-## v1.2.1
+## v1.2.2
 
 <!--Releasenotes start-->
-- Fixed the "Harvest" instead of "Harvest All" prompt showing after admiring a grown plant.
+- Fixed GitHub reference link.
 <!--Releasenotes end-->
+
+## v1.2.1
+
+- Fixed the "Harvest" instead of "Harvest All" prompt showing after admiring a grown plant.
 
 ## v1.2.0
 
