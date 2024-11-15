@@ -7,12 +7,16 @@ local order = {
 }
 
 -- Update the Garden's interaction buttons
--- For planting, Admire is replaced by "Plant All"
+-- For planting, an additional "Plant All" prompt is added, using the special interaction button ("Admire")
 -- For harvesting, "Harvest" is replaced by "Harvest All"
 local newData = {
   {
+    Id = "UseGardenPlotReady",
+    DisplayName = "{I} Raccogli Tutti"
+  },
+  {
     Id = "UseGardenPlotPlant",
-    DisplayName = "{I} Semina\n {SI} Semi Tutti"
+    DisplayName = "{I} Semina\n {SI} Semina Tutti"
   },
   {
     Id = "GardenPlotHarvestAndGift",

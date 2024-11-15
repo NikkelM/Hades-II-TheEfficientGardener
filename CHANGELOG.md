@@ -1,10 +1,14 @@
 # Changelog
 
-## v1.2.0
+## v1.2.1
 
 <!--Releasenotes start-->
-- Added full localization for the mod. *Something doesn't look right? Let me know and we can get it fixed.*
+- Fixed the "Harvest" instead of "Harvest All" prompt showing after admiring a grown plant.
 <!--Releasenotes end-->
+
+## v1.2.0
+
+- Added full localization for the mod. *Something doesn't look right? Let me know and we can get it fixed.*
 
 ## v1.1.0
 
