@@ -1,10 +1,14 @@
 # Changelog
 
-## v1.1.0
+## v1.2.0
 
 <!--Releasenotes start-->
-- Returned the ability to admire grown plants. "Harvest All" now replaces the "Harvest" instead of the "Admire" prompt.
+- Added full localization for the mod. *Something doesn't look right? Let me know and we can get it fixed.*
 <!--Releasenotes end-->
+
+## v1.1.0
+
+- Returned the ability to admire grown plants. "Harvest All" now replaces the "Harvest" instead of the "Admire" prompt.
 
 ## v1.0.0
 
