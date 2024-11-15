@@ -5,7 +5,7 @@ schemaVersion = "0.0.1"
 [package]
 namespace = "NikkelM"
 name = "The_Efficient_Gardener"
-versionNumber = "1.2.0"
+versionNumber = "1.2.1"
 description = "Plant and harvest multiple plants at once in your Garden."
 websiteUrl = "https://github.com/NikkelM/Hades-II-TheEfficientGardener"
 containsNsfwContent = false
