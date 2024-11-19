@@ -1,10 +1,14 @@
 # Changelog
 
-## v1.2.2
+## v1.3.0
 
 <!--Releasenotes start-->
-- Fixed GitHub reference link.
+- Now randomizes the order in which plots are worked each time.
 <!--Releasenotes end-->
+
+## v1.2.2
+
+- Fixed GitHub reference link.
 
 ## v1.2.1
 

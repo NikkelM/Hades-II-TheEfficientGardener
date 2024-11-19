@@ -60,14 +60,25 @@ modutil.mod.Path.Wrap("UseGardenPlot", function(base, plot, args, user)
 		game.SessionState.GlobalCooldowns[plot.Name .. plot.ObjectId] = nil
 		game.wait(0.25)
 
-		-- Harvest all remaining ready plots, skip the others
+		-- Get all plots with fully grown plants in a random order
+		local randomPlots = {}
 		for _, otherPlot in pairs(game.GameState.GardenPlots) do
 			if otherPlot.SeedName ~= nil and otherPlot.GrowTimeRemaining == 0 then
-				-- Reset the cooldown for the function call, as we want to be able to use it multiple times
-				game.SessionState.GlobalCooldowns["UsedGardenPlot"] = nil
-				game.UseGardenPlot(otherPlot, { ModsEfficientGardenerSkipHarvestAll = true }, game.CurrentRun.Hero)
-				game.wait(0.25)
+				table.insert(randomPlots, otherPlot)
 			end
+		end
+
+		for i = #randomPlots, 2, -1 do
+			local j = math.random(1, i)
+			randomPlots[i], randomPlots[j] = randomPlots[j], randomPlots[i]
+		end
+
+		-- Harvest all plots
+		for _, otherPlot in pairs(randomPlots) do
+			-- Reset the cooldown for the function call, as we want to be able to use it multiple times
+			game.SessionState.GlobalCooldowns["UsedGardenPlot"] = nil
+			game.UseGardenPlot(otherPlot, { ModsEfficientGardenerSkipHarvestAll = true }, game.CurrentRun.Hero)
+			game.wait(0.25)
 		end
 		RemoveInputBlock({ Name = "GardenOptimizationHarvestAllAnimation" })
 	else
