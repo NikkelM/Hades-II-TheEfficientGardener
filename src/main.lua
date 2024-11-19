@@ -65,7 +65,7 @@ local function on_ready()
 	import 'Scripts/GardenLogic.lua'
 	import 'Scripts/ResourceLogic.lua'
 
-	-- Text replacements
+	-- Localization/Text replacements
 	import 'Game/Text/HelpText.de.sjson.lua'
 	import 'Game/Text/HelpText.el.sjson.lua'
 	import 'Game/Text/HelpText.en.sjson.lua'

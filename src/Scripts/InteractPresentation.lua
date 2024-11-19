@@ -26,7 +26,7 @@ modutil.mod.Path.Wrap("PlantAdmirePresentation", function(base, usee, args)
 		local selectedSeed = game.GameState.GardenLastSeedPlanted
 		local seedCount = game.GameState.Resources[selectedSeed] or 0
 
-		-- Plant all free plots, or until there are no more of the selected seed
+		-- Get all free plots in a random order
 		local freePlots = {}
 		for _, plot in pairs(game.GameState.GardenPlots) do
 			if plot.SeedName == nil then
@@ -39,6 +39,7 @@ modutil.mod.Path.Wrap("PlantAdmirePresentation", function(base, usee, args)
 			freePlots[i], freePlots[j] = freePlots[j], freePlots[i]
 		end
 
+		-- Plant all free plots, or until there are no more of the selected seed
 		for _, plot in pairs(freePlots) do
 			if seedCount > 0 then
 				-- Set screen and button dummy values for the GardenPlantSeed function

@@ -60,7 +60,7 @@ modutil.mod.Path.Wrap("UseGardenPlot", function(base, plot, args, user)
 		game.SessionState.GlobalCooldowns[plot.Name .. plot.ObjectId] = nil
 		game.wait(0.25)
 
-		-- Randomize the order of the plots to harvest
+		-- Get all plots with fully grown plants in a random order
 		local randomPlots = {}
 		for _, otherPlot in pairs(game.GameState.GardenPlots) do
 			if otherPlot.SeedName ~= nil and otherPlot.GrowTimeRemaining == 0 then
@@ -73,7 +73,7 @@ modutil.mod.Path.Wrap("UseGardenPlot", function(base, plot, args, user)
 			randomPlots[i], randomPlots[j] = randomPlots[j], randomPlots[i]
 		end
 
-		-- Harvest all remaining fully grown plots
+		-- Harvest all plots
 		for _, otherPlot in pairs(randomPlots) do
 			-- Reset the cooldown for the function call, as we want to be able to use it multiple times
 			game.SessionState.GlobalCooldowns["UsedGardenPlot"] = nil
