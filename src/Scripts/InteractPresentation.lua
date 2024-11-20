@@ -62,7 +62,7 @@ modutil.mod.Path.Wrap("PlantAdmirePresentation", function(base, usee, args)
 
 				-- Decrease the seed count (count should be the same as inventory)
 				seedCount = seedCount - 1
-				game.wait(0.25)
+				game.wait(0.2)
 			end
 		end
 		RemoveInputBlock({ Name = "GardenOptimizationPlantAllAnimation" })
