@@ -1,10 +1,14 @@
 # Changelog
 
-## v1.3.0
+## v1.3.1
 
 <!--Releasenotes start-->
-- Now randomizes the order in which plots are worked each time.
+- Slightly tweaked cooldowns to make planting feel more responsive.
 <!--Releasenotes end-->
+
+## v1.3.0
+
+- Now randomizes the order in which plots are worked each time.
 
 ## v1.2.2
 
