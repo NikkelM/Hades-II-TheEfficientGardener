@@ -1,4 +1,4 @@
----@meta NikkelM-Hades_OST_for_the_Music_Maker
+---@meta NikkelM-The_Efficient_Gardener
 local public = {}
 
 -- document whatever you made publicly available to other plugins here
