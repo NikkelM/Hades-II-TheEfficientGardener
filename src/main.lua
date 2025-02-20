@@ -39,18 +39,24 @@ config = chalk.auto 'config.lua'
 public.config = config -- so other mods can access our config
 
 -- For debugging
--- function printTable(t, indent)
+-- function printTable(t, maxDepth, indent)
 -- 	if type(t) ~= "table" then
--- 		print("Error: Expected a table, got " .. type(t))
+-- 		print(t)
 -- 		return
 -- 	end
 
 -- 	indent = indent or 0
+-- 	maxDepth = maxDepth or 20
+-- 	if indent > maxDepth then
+-- 		print(string.rep("  ", indent) .. "...")
+-- 		return
+-- 	end
+
 -- 	local formatting = string.rep("  ", indent)
 -- 	for k, v in pairs(t) do
 -- 		if type(v) == "table" then
 -- 			print(formatting .. k .. ":")
--- 			printTable(v, indent + 1)
+-- 			printTable(v, maxDepth, indent + 1)
 -- 		else
 -- 			print(formatting .. k .. ": " .. tostring(v))
 -- 		end

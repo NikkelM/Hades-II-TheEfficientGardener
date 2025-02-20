@@ -1,10 +1,14 @@
 # Changelog
 
-## v1.3.1
+## v1.3.2
 
 <!--Releasenotes start-->
-- Slightly tweaked cooldowns to make planting feel more responsive.
+- Added fixes following the Warsong update.
 <!--Releasenotes end-->
+
+## v1.3.1
+
+- Slightly tweaked cooldowns to make planting feel more responsive.
 
 ## v1.3.0
 

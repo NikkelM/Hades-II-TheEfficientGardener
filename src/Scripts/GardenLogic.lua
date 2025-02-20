@@ -38,10 +38,8 @@ modutil.mod.Path.Wrap("UseGardenPlot", function(base, plot, args, user)
 			PlantTarget = plot,
 			DefaultCategoryIndex = 2,
 			CategoryLocked = true,
-			InitialSelection =
-					game.GameState.GardenLastSeedPlanted,
-			ModsGardenOptimizationBlockPlantAllAnimation = args
-					.ModsGardenOptimizationBlockPlantAllAnimation,
+			InitialSelection = game.GameState.GardenLastSeedPlanted,
+			ModsGardenOptimizationBlockPlantAllAnimation = args.ModsGardenOptimizationBlockPlantAllAnimation,
 		})
 		return
 	end
@@ -49,7 +47,7 @@ modutil.mod.Path.Wrap("UseGardenPlot", function(base, plot, args, user)
 	-- Else, we are not planting, and the above branch in the base function will never get triggered as well
 
 	-- Harvest all
-	if (plot.StoredGrows or 0) >= 1 and not args.ModsEfficientGardenerSkipHarvestAll then
+	if plot.ReadyForHarvest and not args.ModsEfficientGardenerSkipHarvestAll then
 		-- Don't allow any other inputs while harvesting
 		AddInputBlock({ Name = "GardenOptimizationHarvestAllAnimation" })
 
@@ -63,11 +61,12 @@ modutil.mod.Path.Wrap("UseGardenPlot", function(base, plot, args, user)
 		-- Get all plots with fully grown plants in a random order
 		local randomPlots = {}
 		for _, otherPlot in pairs(game.GameState.GardenPlots) do
-			if otherPlot.SeedName ~= nil and otherPlot.GrowTimeRemaining == 0 then
+			if otherPlot.SeedName ~= nil and otherPlot.ReadyForHarvest then
 				table.insert(randomPlots, otherPlot)
 			end
 		end
 
+		-- Randomize the order in which plots are harvested
 		for i = #randomPlots, 2, -1 do
 			local j = math.random(1, i)
 			randomPlots[i], randomPlots[j] = randomPlots[j], randomPlots[i]
