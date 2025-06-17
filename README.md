@@ -1,5 +1,9 @@
 # The Efficient Gardener
 
+> [!IMPORTANT]
+> This mod is deprecated as the `The Unseen` update has implemented this functionality natively through Cauldron Incantations.
+> Please uninstall the mod to prevent any conflicts.
+
 This mod allows you to plant and harvest multiple plants at once in your Garden.
 
 Harvesting will now always harvest all fully grown plants, instead of just the currently selected one.
