@@ -1,10 +1,14 @@
 # Changelog
 
-## v1.3.2
+## v1.3.3
 
 <!--Releasenotes start-->
-- Added fixes following the Warsong update.
+- Deprecating the mod functionality as the `The Unseen` update has implemented this functionality natively through Cauldron Incantations. Please uninstall the mod to prevent any conflicts.
 <!--Releasenotes end-->
+
+## v1.3.2
+
+- Added fixes following the Warsong update.
 
 ## v1.3.1
 

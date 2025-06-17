@@ -67,26 +67,28 @@ local function on_ready()
 	-- what to do when we are ready, but not re-do on reload.
 	if config.enabled == false then return end
 
-	import 'Scripts/InteractPresentation.lua'
-	import 'Scripts/GardenLogic.lua'
-	import 'Scripts/ResourceLogic.lua'
+	print("IMPORTANT: The \"The Efficient Gardener\" mod is deprecated and all functionality has been removed! Please uninstall the mod! The features have been added to the base game as Cauldron Incantations!")
+	-- Removing all functionality to prevent breaking the game for users that have not uninstalled the mod after it's deprecation.
+	-- import 'Scripts/InteractPresentation.lua'
+	-- import 'Scripts/GardenLogic.lua'
+	-- import 'Scripts/ResourceLogic.lua'
 
-	-- Localization/Text replacements
-	import 'Game/Text/HelpText.de.sjson.lua'
-	import 'Game/Text/HelpText.el.sjson.lua'
-	import 'Game/Text/HelpText.en.sjson.lua'
-	import 'Game/Text/HelpText.es.sjson.lua'
-	import 'Game/Text/HelpText.fr.sjson.lua'
-	import 'Game/Text/HelpText.it.sjson.lua'
-	import 'Game/Text/HelpText.ja.sjson.lua'
-	import 'Game/Text/HelpText.ko.sjson.lua'
-	import 'Game/Text/HelpText.pl.sjson.lua'
-	import 'Game/Text/HelpText.pt-BR.sjson.lua'
-	import 'Game/Text/HelpText.ru.sjson.lua'
-	import 'Game/Text/HelpText.tr.sjson.lua'
-	import 'Game/Text/HelpText.uk.sjson.lua'
-	import 'Game/Text/HelpText.zh-CN.sjson.lua'
-	import 'Game/Text/HelpText.zh-TW.sjson.lua'
+	-- -- Localization/Text replacements
+	-- import 'Game/Text/HelpText.de.sjson.lua'
+	-- import 'Game/Text/HelpText.el.sjson.lua'
+	-- import 'Game/Text/HelpText.en.sjson.lua'
+	-- import 'Game/Text/HelpText.es.sjson.lua'
+	-- import 'Game/Text/HelpText.fr.sjson.lua'
+	-- import 'Game/Text/HelpText.it.sjson.lua'
+	-- import 'Game/Text/HelpText.ja.sjson.lua'
+	-- import 'Game/Text/HelpText.ko.sjson.lua'
+	-- import 'Game/Text/HelpText.pl.sjson.lua'
+	-- import 'Game/Text/HelpText.pt-BR.sjson.lua'
+	-- import 'Game/Text/HelpText.ru.sjson.lua'
+	-- import 'Game/Text/HelpText.tr.sjson.lua'
+	-- import 'Game/Text/HelpText.uk.sjson.lua'
+	-- import 'Game/Text/HelpText.zh-CN.sjson.lua'
+	-- import 'Game/Text/HelpText.zh-TW.sjson.lua'
 end
 
 local function on_reload()
